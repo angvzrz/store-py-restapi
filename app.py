@@ -12,6 +12,8 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# allows to Flask expceptions raise their own exceptions
+app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = 'angel'
 api = Api(app)
 
